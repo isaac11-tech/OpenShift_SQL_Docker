@@ -10,9 +10,9 @@ class DBConnection:
             conn = mysql.connector.connect(
                 host='localhost',
                 port=3306,
-                user='root',
-                password='',
-                database='eagleeyedb'
+                user='isaac',
+                password='1234',
+                database='mysql'
             ) if cs is None else mysql.connector.connect(**cs)
 
             if conn.is_connected():
@@ -27,7 +27,7 @@ class DBConnection:
             conn.close()
 
     @staticmethod
-    def execute_query(sql, params=None, cs=None):
+    def execute_query(sql, params=None, cs=None):#this function well use to get the table
         conn = DBConnection.connect(cs)
         if conn is None:
             return None
@@ -43,14 +43,3 @@ class DBConnection:
         finally:
             cursor.close()
             DBConnection.disconnect(conn)
-
-    @staticmethod
-    def print_results(results):
-        if not results:
-            print("No results found.")
-            return
-
-        for row in results:
-            for key, value in row.items():
-                print(f"{key}: {value}")
-            print("---")
