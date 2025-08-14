@@ -19,19 +19,25 @@ step 2:
 
 step 3:
 
- oc create -f - <<EOF
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mysql-pvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
-EOF
+  creating yamal file that creating pvc
 
+           oc create -f - <<EOF
+   apiVersion: v1
+   kind: PersistentVolumeClaim
+   metadata:
+     name: mysql-pvc
+   spec:
+     accessModes:
+       - ReadWriteOnce
+     resources:
+       requests:
+         storage: 1Gi
+   EOF
+
+
+step 4:
+
+concerting the pvc to the mysql server
 
 oc set volume deployment/mysql \
   --add \

@@ -1,6 +1,7 @@
 import mysql.connector
 from mysql.connector import Error
-
+import os
+#os.getenv("")  for update later
 
 class DBConnection:
 
@@ -21,17 +22,18 @@ class DBConnection:
             print(f"Error: {e}")
             return None
 
+
     @staticmethod
     def disconnect(conn):
         if conn.is_connected():
             conn.close()
+
 
     @staticmethod
     def execute_query(sql, params=None, cs=None):#this function well use to get the table
         conn = DBConnection.connect(cs)
         if conn is None:
             return None
-
         try:
             cursor = conn.cursor()
             cursor.execute(sql, params)
