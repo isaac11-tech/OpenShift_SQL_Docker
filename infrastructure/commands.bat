@@ -9,7 +9,7 @@ step 1:
 step 2:
     creating MYSQL_DATABASE with new-app (deployment + pull image)
 
-     oc new-app mysql:8 \
+     oc new-app mysql:8\
   -e MYSQL_ROOT_PASSWORD=1234 \
   -e MYSQL_DATABASE=MYSQL_DATABASE \
   -e MYSQL_USER=isaac \

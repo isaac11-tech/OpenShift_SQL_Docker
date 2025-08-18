@@ -1,7 +1,7 @@
 import mysql.connector
 from mysql.connector import Error
 import os
-#os.getenv("")  for update later
+
 
 class DBConnection:
 
@@ -9,11 +9,11 @@ class DBConnection:
     def connect(cs=None):
         try:
             conn = mysql.connector.connect(
-                host='localhost',
+                host="127.0.0.1",
                 port=3306,
-                user='isaac',
-                password='1234',
-                database='mysql'
+                user="myuser",
+                password="mypassword",
+                database="mydb"
             ) if cs is None else mysql.connector.connect(**cs)
 
             if conn.is_connected():
@@ -48,6 +48,9 @@ class DBConnection:
             if cursor:
              cursor.close()
             DBConnection.disconnect(conn)
+
+
+
 
     @staticmethod
     def execute_non_query(sql, params=None, cs=None):
