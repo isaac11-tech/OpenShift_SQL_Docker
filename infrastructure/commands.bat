@@ -18,8 +18,7 @@ step 2:
 
 
 step 3:
-
-  creating yamal file that creating pvc
+  creating yamal file that creating pvc (creating on the cloud)
 
            oc create -f - <<EOF
    apiVersion: v1

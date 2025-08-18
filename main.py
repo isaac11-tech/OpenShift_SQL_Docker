@@ -1,8 +1,6 @@
 import uvicorn
 from data import creating_data
 
-
-
 #this mead for the user do get the table
 if __name__ == "__main__":
      creating_data.insert_data()# creating table to the sql server
